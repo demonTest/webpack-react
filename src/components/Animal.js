@@ -1,36 +1,46 @@
-import React,{Component} from 'react';
+import React, {Component} from 'react';
 import ReactDOM from 'react-dom'
+import CetItem from '@/components/CetItem'
 
 class Animal {
     static info = 'ddd';
-    constructor(name,age){
-       this.name = name;
-       this.age = age;
+
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
     }
-    Person(){
+
+    Person() {
 
     }
-    static ter(){
+
+    static ter() {
 
     }
 }
-class Chiams extends Animal{
 
-    constructor(name,age,phone){
-        super(name,age);
+class Chiams extends Animal {
+
+    constructor(name, age, phone) {
+        super(name, age);
         this.phone = phone;
     }
-    sayHello(){
+
+    sayHello() {
 
     }
 }
 
-const al = new Chiams('呵呵',2,'2313434');
+const al = new Chiams('呵呵', 2, '2313434');
 console.log(al);
 al.sayHello();
-
-class Movie extends Component{
-    constructor(){
+const sts = {color:'red',margin:'10px'};
+const sys = {fontSize:'20px'};
+const sty = {
+    sts:sts,sys:sys
+}
+class Movie extends Component {
+    constructor() {
         super();
         this.state = {
             msg: '测试',
@@ -57,13 +67,14 @@ class Movie extends Component{
         }
     }
 
-    render(){
-        this.state .msg ='修改';
+    render() {
+        this.state.msg = '修改';
         return <div>
             这是Movie组件--{this.props.name}--{this.props.age}--{this.props.gender}---{this.state.msg}
-            <h1>列表</h1>
-            <div>{this.state.dogs.map(item=> <div>{item.name}</div>)}</div>
+            <div style={sty.sts}>列表</div>
+            <div>{this.state.dogs.map(item => <CetItem {...item}/>)}</div>
         </div>
     }
 }
+
 export default Movie;
