@@ -26,54 +26,25 @@ module.exports = {
     mode: 'production', // development   production
     // 在 webpack 4.x 中，有一个很大的特性，就是 约定大于配置  约定，默认的打包入口路径是 src -> index.js
     plugins: [
-        htmlPlugin,
-        new ExtractTextPlugin("bundle.css"),
+        htmlPlugin
     ],
     module: { // 所有第三方 模块的配置规则
         rules: [ // 第三方匹配规则
             {test: /\.js|jsx$/, use: 'babel-loader', exclude: /node_modules/}, // 千万别忘记添加 exclude 排除项
-            {
-                test: /\.css$/,
-                exclude: /node_modules/,
-                use: ExtractTextPlugin.extract({
-                    fallback: "style-loader",
-                    use: [{
-                        loader: "css-loader",
-                        options: {
-                            importLoaders: 1,
-                            modules: true,
-                            localIdentName: '[name]__[local]__[hash:base64:5]'
-                        }
-                    },
-                        {
-                            loader: 'postcss-loader',
-                            options: {
-                                ident: 'postcss',
-                                plugins: () => [
-                                    autoprefixer({
-                                        browsers: [
-                                            "> 1%",
-                                            "last 2 versions"
-                                        ]
-                                    })
-                                ]
-                            }
-                        }],
-                    publicPath: "../"
-                })
-            }
+            {test: /\.css$/,use:['style-loader','css-loader?modules&localIdentName=[path][name]-[local]-[hash:5]'], exclude: /node_modules/},
+            {test:/\.jpg|png|gif|bmp$/,use:'url-loader', exclude: /node_modules/}
         ]
     },
     resolve: {
-        extensions: ['.js', '.jsx', '.json'], // 表示，这几个文件的后缀名，可以省略不写
+        extensions: ['.js', '.jsx', '.json','.css'], // 表示，这几个文件的后缀名，可以省略不写
         alias: { // 表示别名
             '@': path.join(__dirname, './src') // 这样，@ 就表示 项目根目录中 src 的这一层路径
         }
     },
     output: {
-        path: path.resolve(__dirname, 'build'),
+        path: path.resolve(__dirname, 'dist'),
         filename: '[name].[hash:8].js',
-        publicPath: '/',
+        publicPath: './',
     },
     optimization: {
         minimizer: [
@@ -97,3 +68,36 @@ module.exports = {
     algorithm:  'gzip',
     test:  /\.js$|\.css$|\.html$/*/
 
+/*
+,
+        new ExtractTextPlugin("bundle.css"),
+{
+    test: /\.css$/,
+        exclude: /node_modules/,
+    use: ExtractTextPlugin.extract({
+    fallback: "style-loader",
+    use: [{
+        loader: "css-loader",
+        options: {
+            importLoaders: 1,
+            modules: true,
+            localIdentName: '[name]__[local]__[hash:base64:5]'
+        }
+    },
+        {
+            loader: 'postcss-loader',
+            options: {
+                ident: 'postcss',
+                plugins: () => [
+                    autoprefixer({
+                        browsers: [
+                            "> 1%",
+                            "last 2 versions"
+                        ]
+                    })
+                ]
+            }
+        }],
+    publicPath: "../"
+})
+}*/
