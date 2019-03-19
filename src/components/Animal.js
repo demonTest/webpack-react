@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom'
-import CetItem from '@/components/CetItem'
+import CetItem from '@/components/CetItem';
+
 
 class Animal {
     static info = 'ddd';
@@ -72,7 +73,7 @@ class Movie extends Component {
         return <div>
             这是Movie组件--{this.props.name}--{this.props.age}--{this.props.gender}---{this.state.msg}
             <div style={sty.sts}>列表</div>
-            <div>{this.state.dogs.map(item => <CetItem {...item}/>)}</div>
+            <div >{this.state.dogs.map(item => <CetItem  {...item}/>)}</div>
         </div>
     }
 }
