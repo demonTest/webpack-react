@@ -1,0 +1,17 @@
+
+.title {
+    color: red;
+}
+.dog{
+    font-size: 12px;
+}
+.box  {
+    width: 100px;
+    height: 100px;
+    display: block;
+    background-image: url(../images/logo.png);
+    background-size: 100% 100%;
+}
+:global(.test){
+    color: coral;
+}
