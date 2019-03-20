@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import CetItem from '@/components/CetItem';
 
 import bootcss from 'bootstrap/dist/css/bootstrap.css'
+
 class Animal {
     static info = 'ddd';
 
@@ -36,11 +37,12 @@ class Chiams extends Animal {
 const al = new Chiams('呵呵', 2, '2313434');
 console.log(al);
 al.sayHello();
-const sts = {color:'red',margin:'10px'};
-const sys = {fontSize:'20px'};
+const sts = {color: 'red', margin: '10px'};
+const sys = {fontSize: '20px'};
 const sty = {
-    sts:sts,sys:sys
-}
+    sts: sts, sys: sys
+};
+
 class Movie extends Component {
     constructor() {
         super();
@@ -73,10 +75,14 @@ class Movie extends Component {
         this.state.msg = '修改';
         return <div>
             这是Movie组件--{this.props.name}--{this.props.age}--{this.props.gender}---{this.state.msg}
-            <div style={sty.sts}>列表</div>
-            <div >{this.state.dogs.map(item => <CetItem  {...item}/>)}</div>
-            <button className="btn btn-primary">测试</button>
+            <div style={Object.assign(sty.sts, sty.sys)}>列表1</div>
+            <div>{this.state.dogs.map((item,key) => <CetItem key={key} {...item}/>)}</div>
+            <button className="btn btn-primary" onClick={()=>this.cilckHandler('423')}>测试</button>
         </div>
+    }
+
+    cilckHandler =(arg)=>{
+         console.log('ok',arg)
     }
 }
 
