@@ -72,18 +72,26 @@ class Movie extends Component {
     }
 
     render() {
-        this.state.msg = '修改';
         return <div>
-            这是Movie组件--{this.props.name}--{this.props.age}--{this.props.gender}---{this.state.msg}
-            <div style={Object.assign(sty.sts, sty.sys)}>列表1</div>
+            这是Movie组件--{this.props.name}--{this.props.age}--{this.props.gender}
+            <div style={sty.sts}>列表1</div>{/*Object.assign(sty.sts, sty.sys)*/}
             <div>{this.state.dogs.map((item,key) => <CetItem key={key} {...item}/>)}</div>
-            <button className="btn btn-primary" onClick={()=>this.cilckHandler('423')}>测试</button>
+            <button className="btn btn-primary" onClick={(e)=>this.cilckHandler('413',e)}>测试</button>
+            <span>{ this.state.msg}</span>
+            <input type="text" style={{width:'300px'}} value={this.state.msg} onChange={(e)=>this.txtChange(e)} ref="txt"/>
         </div>
     }
 
-    cilckHandler =(arg)=>{
-         console.log('ok',arg)
+    cilckHandler =(arg,el)=>{
+         console.log('ok',arg);
+        this.setState({msg: '再次修改'});
+    };
+    txtChange = (e)=>{
+      /*  console.log(this.refs.txt.value,e.target.value)*/
+        const newVal = this.refs.txt.value;
+        this.setState({msg: newVal});
     }
+
 }
 
 export default Movie;
