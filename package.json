@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --open --port 3000 --hot --host 127.0.0.1",
-    "build": "webpack -p"
+    "dist": "webpack -p"
   },
   "keywords": [],
   "author": "",
@@ -21,16 +21,20 @@
     "compression-webpack-plugin": "^2.0.0",
     "css-loader": "^2.1.1",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
-    "html-webpack-plugin": "^3.0.6",
+    "file-loader": "^3.0.1",
+    "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.5.0",
+    "node-sass": "^4.11.0",
+    "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "uglifyjs-webpack-plugin": "^2.1.2",
     "url-loader": "^1.1.2",
     "webpack": "^4.29.6",
-    "webpack-cli": "^3.2.3",
-    "webpack-dev-server": "^3.1.1"
+    "webpack-cli": "^3.3.0",
+    "webpack-dev-server": "^3.1.4"
   },
   "dependencies": {
+    "bootstrap": "^3.3.7",
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
   }
