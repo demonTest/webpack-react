@@ -76,7 +76,7 @@ class Movie extends Component {
             这是Movie组件--{this.props.name}--{this.props.age}--{this.props.gender}
             <div style={sty.sts}>列表1</div>{/*Object.assign(sty.sts, sty.sys)*/}
             <div>{this.state.dogs.map((item,key) => <CetItem key={key} {...item}/>)}</div>
-            <button className="btn btn-primary" onClick={(e)=>this.cilckHandler('413',e)}>测试</button>
+            <button className="btn btn-primary" onClick={(e)=>this.cilckHandler('413',e)}>测试1</button>
             <span>{ this.state.msg}</span>
             <input type="text" style={{width:'300px'}} value={this.state.msg} onChange={(e)=>this.txtChange(e)} ref="txt"/>
         </div>

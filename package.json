@@ -36,6 +36,7 @@
   "dependencies": {
     "bootstrap": "^3.3.7",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "react-router": "^5.0.0"
   }
 }

@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import Hello from './components/Hello'
 import Movie from './components/Animal'
 
+
 const dog = {
     name: '大黄',
     age: 3,

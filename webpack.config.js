@@ -73,7 +73,7 @@ module.exports = {
     ],
     watch: true,  //开启监听文件变化
     watchOptions: {
-        aggregateTimeout: 1000, // 节流, 你这个文件修改后的一秒后,再进行构建
+        aggregateTimeout: 300, // 节流, 你这个文件修改后的一秒后,再进行构建
         poll: 1000, // 每秒检查一次变动
         ignored: /node_modules/ // 排除node_modules,监听大量文件系统会占用更多的CPU和内容消耗
     },
